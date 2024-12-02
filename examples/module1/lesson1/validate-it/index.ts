@@ -1,3 +1,5 @@
+import { NUMBER_VALIDATORS } from './methods';
+
 const validator = () => {
   const input: HTMLElement = document.getElementById('input')!;
   const validateBtn: HTMLElement = document.getElementById('button')!;
@@ -5,7 +7,6 @@ const validator = () => {
   const displayMessage: HTMLElement = document.getElementById('result')!;
 
   validateBtn.addEventListener('click', () => {
-    console.log('value', input.value);
     if (input.value) {
       if (Number.isInteger(input.value)) {
         if (
