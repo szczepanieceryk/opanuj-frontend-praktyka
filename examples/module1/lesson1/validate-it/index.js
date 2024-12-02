@@ -1,34 +1,35 @@
-function validator() {
-  const input = document.getElementById('input');
-  const button = document.getElementById('button');
-  const button2 = document.getElementById('button2');
-  const result = document.getElementById('result');
+const validator = () => {
+  const numberInput = document.getElementById('input');
+  const validateBtn = document.getElementById('button');
+  const clearBtn = document.getElementById('button2');
+  const displayMessage = document.getElementById('result');
 
-  button.addEventListener('click', () => {
-    if (input.value) {
-      if (Number.isInteger(input.value)) {
+  validateBtn.addEventListener('click', () => {
+    console.log('value', numberInput.value);
+    if (numberInput.value) {
+      if (Number.isInteger(numberInput.value)) {
         if (
-          Number(input.value) > 0 &&
-          Number(input.value) < 100 &&
-          Number(input.value) % 2 === 0
+          Number(numberInput.value) > 0 &&
+          Number(numberInput.value) < 100 &&
+          Number(numberInput.value) % 2 === 0
         ) {
-          result.innerHTML = 'Valid';
+          displayMessage.innerHTML = 'Valid';
         } else {
-          result.innerHTML = 'Invalid';
+          displayMessage.innerHTML = 'Invalid';
         }
-        result.innerHTML = 'Valid';
+        displayMessage.innerHTML = 'Valid';
       } else {
-        result.innerHTML = 'Invalid';
+        displayMessage.innerHTML = 'Invalid';
       }
     } else {
-      result.innerHTML = 'Invalid';
+      displayMessage.innerHTML = 'Invalid';
     }
   });
 
-  button2.addEventListener('click', () => {
-    input.value = '';
-    result.innerHTML = '';
+  clearBtn.addEventListener('click', () => {
+    numberInput.value = '';
+    displayMessage.innerHTML = '';
   });
-}
+};
 
 validator();
