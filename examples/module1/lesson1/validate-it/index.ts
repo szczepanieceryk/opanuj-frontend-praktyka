@@ -1,30 +1,15 @@
 import { NUMBER_VALIDATORS } from './methods';
+import { validate } from './validators';
 
 const validator = () => {
-  const input: HTMLElement = document.getElementById('input')!;
+  const input: HTMLInputElement = document.getElementById('input')!;
   const validateBtn: HTMLElement = document.getElementById('button')!;
   const clearBtn: HTMLElement = document.getElementById('button2')!;
   const displayMessage: HTMLElement = document.getElementById('result')!;
 
   validateBtn.addEventListener('click', () => {
-    if (input.value) {
-      if (Number.isInteger(input.value)) {
-        if (
-          Number(input.value) > 0 &&
-          Number(input.value) < 100 &&
-          Number(input.value) % 2 === 0
-        ) {
-          displayMessage.innerHTML = 'Valid';
-        } else {
-          displayMessage.innerHTML = 'Invalid';
-        }
-        displayMessage.innerHTML = 'Valid';
-      } else {
-        displayMessage.innerHTML = 'Invalid';
-      }
-    } else {
-      displayMessage.innerHTML = 'Invalid';
-    }
+    const validationMessage = validate(input.value, NUMBER_VALIDATORS);
+    displayMessage.innerText = validationMessage;
   });
 
   clearBtn.addEventListener('click', () => {
