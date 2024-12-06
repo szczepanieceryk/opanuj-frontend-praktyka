@@ -24,8 +24,14 @@ describe('User renderer', () => {
     renderItems(container, users);
     const arrayOfLiEmenents = Array.from(container.querySelectorAll('li'));
 
-    expect(arrayOfLiEmenents[0].innerText === 'Name: John, Age: 30');
-    expect(arrayOfLiEmenents[1].innerText === 'Name: Jack, Age: 40');
+    expect(
+      arrayOfLiEmenents[0].innerText ===
+        `Name: ${users[0].name}, Age: ${users[0].age}`
+    );
+    expect(
+      arrayOfLiEmenents[1].innerText ===
+        `Name: ${users[2].name}, Age: ${users[2].age}`
+    );
   });
 
   test('should render only regular users if non-admin is rendering the list', () => {
