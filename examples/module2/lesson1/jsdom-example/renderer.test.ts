@@ -18,6 +18,16 @@ describe('User renderer', () => {
     expect(Array.from(container.querySelectorAll('li'))).toHaveLength(3);
   });
 
+  test('should return user name and age if admin is rendering the list', () => {
+    localStorage.setItem('userRole', 'admin');
+    const container = document.createElement('div');
+    renderItems(container, users);
+    const arrayOfLiEmenents = Array.from(container.querySelectorAll('li'));
+
+    expect(arrayOfLiEmenents[0].innerText === 'Name: John, Age: 30');
+    expect(arrayOfLiEmenents[1].innerText === 'Name: Jack, Age: 40');
+  });
+
   test('should render only regular users if non-admin is rendering the list', () => {
     localStorage.setItem('userRole', 'user');
 
