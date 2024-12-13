@@ -9,10 +9,10 @@ import {
 const App = () => {
   const [numA, setNumA] = useState<number>(0);
   const [numB, setNumB] = useState<number>(0);
-  const [numC, setNumC] = useState<number | string>(0);
+  const [result, setResult] = useState<number | string>(0);
 
   const handleEquation = (func: (a: number, b: number) => number) => {
-    setNumC(func(numA, numB));
+    setResult(func(numA, numB));
   };
 
   return (
@@ -57,7 +57,7 @@ const App = () => {
           /
         </button>
       </div>
-      <div>Result: {numC}</div>
+      <div>Result: {result}</div>
     </div>
   );
 };
