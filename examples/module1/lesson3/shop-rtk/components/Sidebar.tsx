@@ -34,7 +34,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
       <div className="flex items-center justify-between py-6 border-b">
         <div className="uppercase text-sm font-semibold">
           Shopping Bag (
-          <span data-testid="cart-count-sidebar">{cartItems.length}</span>)
+          <span data-testid="cart-count-sidebar">{itemAmount}</span>)
         </div>
         <div
           onClick={() => setIsSidebarOpen(false)}
