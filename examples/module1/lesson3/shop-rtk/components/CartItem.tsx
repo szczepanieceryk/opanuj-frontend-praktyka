@@ -7,7 +7,6 @@ import type { CartItem as CartItemType } from '../types/CartItem';
 import { useAppDispatch } from '../hooks/rtk';
 
 import {
-  addToCart,
   decreaseAmount,
   increaseAmount,
   removeFromCart,
