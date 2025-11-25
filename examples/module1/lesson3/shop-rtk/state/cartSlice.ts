@@ -74,4 +74,7 @@ export const selectItemAmount = (state: RootState) =>
     return accumulator + currentItem.amount;
   }, 0);
 
+export const selectTotalPrice = (state: RootState) =>
+  state.cart.items.reduce((total, item) => total + item.price * item.amount, 0);
+
 export default cartSlice.reducer;
